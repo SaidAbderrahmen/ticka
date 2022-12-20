@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticka/screens/design_details.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class CustomListView extends StatelessWidget {
@@ -26,18 +27,34 @@ class CustomListView extends StatelessWidget {
     return ListView.separated(
         scrollDirection: axis,
         itemBuilder: (context, index) {
-          return Container(
-            height: height,
-            width: width,
-            decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.all(Radius.circular(radius))),
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(radius)),
-              child: FadeInImage.memoryNetwork(
-                placeholder: kTransparentImage,
-                image: imageList[index],
-                fit: BoxFit.cover,
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DesignDetails(
+                        parent: "list",
+                        index: index,
+                        image: imageList[index],
+                        imageList: imageList),
+                  ));
+            },
+            child: Container(
+              height: height,
+              width: width,
+              decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.all(Radius.circular(radius))),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(radius)),
+                child: Hero(
+                  tag: 'image$index',
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: imageList[index],
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           );

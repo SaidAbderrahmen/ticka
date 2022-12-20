@@ -39,6 +39,7 @@ dependencies:
   transparent_image: ^2.0.0
   google_fonts: ^3.0.1
   shared_preferences: ^2.0.15
+  draggable_fab: ^0.1.4
 
 dev_dependencies:
   flutter_test:

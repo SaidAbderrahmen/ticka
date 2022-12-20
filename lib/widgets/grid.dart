@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:ticka/core/colors.dart';
 import 'package:ticka/core/fonts.dart';
+import 'package:ticka/screens/design_details.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class Grid extends StatelessWidget {
@@ -12,7 +12,6 @@ class Grid extends StatelessWidget {
   }) : super(key: key);
 
   final List<String> imageList;
-
   @override
   Widget build(BuildContext context) {
     return MasonryGridView.count(
@@ -26,16 +25,32 @@ class Grid extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.all(Radius.circular(25))),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(25)),
-                child: FadeInImage.memoryNetwork(
-                  placeholder: kTransparentImage,
-                  image: imageList[index],
-                  fit: BoxFit.cover,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DesignDetails(
+                          parent: "grid",
+                          index: index,
+                          image: imageList[index],
+                          imageList: imageList),
+                    ));
+              },
+              child: Container(
+                decoration: const BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.all(Radius.circular(25))),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(25)),
+                  child: Hero(
+                    tag: 'grid$index',
+                    child: FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      image: imageList[index],
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
             ),
