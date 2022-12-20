@@ -67,8 +67,8 @@ class _SplashScreenState extends State<SplashScreen> {
                       horizontal: 20,
                     ),
                     child: SizedBox(
-                      height: 40,
-                      width: 200,
+                      height: 50,
+                      width: 230,
                       child: TextButton(
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -83,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         child: Text(
                           "Get Started",
                           style: AppFonts.title.copyWith(
-                              color: AppColors.fontColor, fontSize: 18),
+                              color: AppColors.fontColor, fontSize: 20),
                         ),
                       ),
                     ),
@@ -111,8 +111,8 @@ class _SplashScreenState extends State<SplashScreen> {
                               width: 12,
                               decoration: BoxDecoration(
                                 color: currentPage == index
-                                    ? AppColors.primaryColor
-                                    : AppColors.secondColor,
+                                    ? AppColors.thirdColor
+                                    : AppColors.primaryColor,
                                 shape: BoxShape.circle,
                               ),
                             );
