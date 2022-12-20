@@ -83,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         child: Text(
                           "Get Started",
                           style: AppFonts.title.copyWith(
-                              color: AppColors.fontColor, fontSize: 20),
+                              color: AppColors.secondColor, fontSize: 20),
                         ),
                       ),
                     ),
@@ -111,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen> {
                               width: 12,
                               decoration: BoxDecoration(
                                 color: currentPage == index
-                                    ? AppColors.thirdColor
+                                    ? AppColors.bgColor
                                     : AppColors.primaryColor,
                                 shape: BoxShape.circle,
                               ),
